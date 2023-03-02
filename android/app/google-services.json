@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "355481512820",
+    "project_id": "graduation-5cb7e",
+    "storage_bucket": "graduation-5cb7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355481512820:android:4136d02f01e9ce8dda5a21",
+        "android_client_info": {
+          "package_name": "com.example.graduation_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355481512820-tdtb5uabsdpu9im3v357jafrqk265ct6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjw9Pjx96y-HQ2fRrceFlM9j0PZGoEpqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355481512820-tdtb5uabsdpu9im3v357jafrqk265ct6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "355481512820-048bvh971eru89d1apmv0guhi2uosfe2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.graduationProject"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355481512820:android:e650d1c77e1b659ada5a21",
+        "android_client_info": {
+          "package_name": "com.example.grduation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355481512820-tdtb5uabsdpu9im3v357jafrqk265ct6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjw9Pjx96y-HQ2fRrceFlM9j0PZGoEpqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355481512820-tdtb5uabsdpu9im3v357jafrqk265ct6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "355481512820-048bvh971eru89d1apmv0guhi2uosfe2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.graduationProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
