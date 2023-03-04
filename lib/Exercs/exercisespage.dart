@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Model/Model.dart';
@@ -48,7 +49,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
     //end
 
     // TODO: implement initState
-    timer = Timer.periodic(Duration(seconds: 3), (timer) {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (timer.tick == widget.second) {
         timer.cancel();
         setState(() {
@@ -97,34 +98,34 @@ class _ExercisesPageState extends State<ExercisesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //bottomNavigationBar: _isBottomBannerAdLoaded
-      //     ? Container(
-      //         height: _bottomBannerAd.size.height.toDouble(),
-      //         width: _bottomBannerAd.size.width.toDouble(),
-      //         child: AdWidget(ad: _bottomBannerAd),
-      //       )
-      //     : null,
-      // appBar: AppBar(
-      //   title: Text('${widget.title}'),
-      // ),
+
       body: Stack(
         children: [
-          // Image.network(
-          //   '${widget.thumbnail}',
-          //   fit: BoxFit.cover,
-          //   height: double.infinity,
-          // ),
-          Column(children: [
+          Column(
+              children: [
             SizedBox(
               height: 40,
             ),
-            Container(
-                height: MediaQuery.of(context).size.height / 2,
-                width: double.infinity,
-                child: Image.network(
-                  '${widget.gif}',
-                  width: double.infinity,
-                )),
+                Container(
+                  child: CachedNetworkImage(
+                    imageUrl: '${widget.gif}',
+                    imageBuilder: (context, imageProvider) => Container(
+                        height: 400,
+                        width: double.infinity,
+                        padding: EdgeInsets.only(top: 80),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Image(image: imageProvider)
+                      // width: double.infinity,
+                      //  height: MediaQuery.of(context).size.height / 2,
+                    ),
+                  ),
+                ),
+            SizedBox(
+              height: 40,
+            ),
             Text(
               'Time Start',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
@@ -134,7 +135,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
             ),
             CircleAvatar(
               radius: 70,
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.green[500],
               child: Text(
                 '${startSound} / ${widget.second!.toStringAsFixed(0)}',
                 style: TextStyle(
@@ -146,12 +147,21 @@ class _ExercisesPageState extends State<ExercisesPage> {
             SizedBox(
               height: 20,
             ),
-            MaterialButton(
-              color: Colors.orange,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text("End Now"),
+            Container(
+              width: 150,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                borderRadius:BorderRadius.circular(20.2),
+                border: Border.all(color: Colors.green,width: 1)
+              ),
+              child: MaterialButton(
+                //color: Colors.orange,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("End Now",style: TextStyle(fontSize: 18),),
+              ),
             ),
             SizedBox(
               height: 30,

@@ -1,13 +1,14 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import 'DetailPage.dart';
 import 'Model/Model.dart';
-
 
 class GridDemo extends StatefulWidget {
   const GridDemo({Key? key}) : super(key: key);
@@ -17,28 +18,6 @@ class GridDemo extends StatefulWidget {
 }
 
 class _GridDemoState extends State<GridDemo> {
-  //ad
-  // late BannerAd _bottomBannerAd;
-  // bool _isBottomBannerAdLoaded = false;
-  // void _createBottomBannerAd() {
-  //   _bottomBannerAd = BannerAd(
-  //     adUnitId: AdHelper.bannerAdUnitId,
-  //     size: AdSize.banner,
-  //     request: AdRequest(),
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (_) {
-  //         setState(() {
-  //           _isBottomBannerAdLoaded = true;
-  //         });
-  //       },
-  //       onAdFailedToLoad: (ad, error) {
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   );
-  //   _bottomBannerAd.load();
-  // }
-
   @override
   void dispose() {
     super.dispose();
@@ -88,11 +67,11 @@ class _GridDemoState extends State<GridDemo> {
   void initState() {
     //banner ad
     super.initState();
-   // _createBottomBannerAd();
+    // _createBottomBannerAd();
     // TODO: implement initState
     fetchData();
     /* Future.delayed(Duration(seconds: 3), () {
-     
+
     });*/
     super.initState();
   }
@@ -100,95 +79,99 @@ class _GridDemoState extends State<GridDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //bottom ad
-      // bottomNavigationBar: _isBottomBannerAdLoaded
-      //     ? Container(
-      //         height: _bottomBannerAd.size.height.toDouble(),
-      //         width: double.infinity,
-      //         child: AdWidget(ad: _bottomBannerAd),
-      //       )
-      //     : null,
-      backgroundColor: Color.fromARGB(225, 255, 255, 255),
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back),
-          color: Colors.black,
-        ),
-        centerTitle: true,
+    return ModalProgressHUD(
+      inAsyncCall: isLoading,
+      child: Scaffold(
         backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(
-          'Exercises Page',
-          style: TextStyle(color: Color(0xff53d1c9)),
-        ),
-      ),
-      body: Container(
-          child: GridView.builder(
-        itemCount: allData.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 1,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => DetilPage(
-                        exerciesModel: allData[index],
-                      )));
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
             },
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-              height: 150,
-              width: double.infinity,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Stack(
-                  children: [
-                    Image.network(
-                      "${allData[index].gif}",
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
-                    Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        child: Container(
-                          padding: EdgeInsets.all(16),
-                          height: 80,
-                          alignment: Alignment.bottomLeft,
-                          child: Text(
-                            "${allData[index].title}",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800),
-                          ),
+            icon: Icon(Icons.arrow_back),
+            color: Colors.black,
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+            'Exercises Page',
+            style: TextStyle(color: Colors.grey[400]),
+          ),
+        ),
+        body: Container(
+            child: GridView.builder(
+          itemCount: allData.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 1,
+            mainAxisSpacing: 1,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => DetilPage(
+                          exerciesModel: allData[index],
+                        )));
+              },
+              child: CachedNetworkImage(
+                imageUrl: "${allData[index].gif}",
+                // fit: BoxFit.cover,
+                //       width: double.infinity,
+                imageBuilder: (context, imageProvider) => Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                  height: 150,
+                  width: double.infinity,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Stack(
+                      children: [
+                        Image(image: imageProvider,
+                        fit: BoxFit.cover,
                           width: double.infinity,
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                Colors.black12,
-                                Colors.black54,
-                                Colors.black87,
-                                Colors.black
-                              ])),
-                        ))
-                  ],
+                        ),
+                        // Image.network(
+                        //   "${allData[index].gif}",
+                        //   fit: BoxFit.cover,
+                        //   width: double.infinity,
+                        // ),
+                        Positioned(
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            child: Container(
+                              padding: EdgeInsets.all(16),
+                              height: 80,
+                              alignment: Alignment.bottomLeft,
+                              child: Text(
+                                "${allData[index].title}",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      colors: [
+                                    Colors.black12,
+                                    Colors.black54,
+                                    Colors.black87,
+                                    Colors.black
+                                  ])),
+                            ))
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          );
-        },
-      )),
+            );
+          },
+        )),
+      ),
     );
   }
 }

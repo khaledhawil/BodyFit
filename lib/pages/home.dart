@@ -1,6 +1,11 @@
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../Exercs/GridDemo.dart';
 import '../Screens/drawer.dart';
 import '../constants.dart';
+
 
 class Home extends StatefulWidget {
    final String username;
@@ -10,13 +15,17 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+
 class _HomeState extends State<Home> {
+
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   //bool _darkMode = false;
   @override
+
   Widget build(BuildContext context) {
    // String? userName;
     ModalRoute.of(context)!.settings.arguments as String?;
+    //MyLocaleController controllerLang = Get.find();
     return Scaffold(
         key: _scaffoldKey,
         backgroundColor: kPrimaryColor,
@@ -91,13 +100,52 @@ class _HomeState extends State<Home> {
                       ),
                       Expanded(
                           child: Container(
-                        padding: EdgeInsets.only(left: 20),
-                        width: 120,
-                        height: 140,
-                        child: Image(
-                            image: AssetImage('assets/images/fitness.png')),
-                      ))
+                            padding: EdgeInsets.only(left: 20),
+                            width: 120,
+                            height: 140,
+                            child: Image(
+                                image: AssetImage('assets/images/fitness.png')),
+                          ))
                     ],
+                  ),
+                ),
+
+
+                Container(
+                  alignment: Alignment.centerLeft,
+                  height: 160,
+                  width: 400,
+                  margin: EdgeInsets.only(top: 20.0, left: 10, right: 20),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 1.0,
+                  ),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Colors.green, width: 2)),
+                  child: MaterialButton(
+                    onPressed: () {
+                      // Navigate to "The exercise" screen
+                      Navigator.pushNamed(context, 'meals');
+                    },
+                    child: Row(
+                      children: [
+                        Text('Nutrition\nand Meals',
+                            style: TextStyle(
+                                fontSize: 30.0,
+                                color: Colors.green,
+                                fontWeight: FontWeight.w600)),
+                        SizedBox(
+                          width: 50,
+                        ),
+                        Expanded(
+                            child: Container(
+                              width: 140,
+                              height: 150,
+                              child: Image.asset('assets/food2.png'),
+                            ))
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -111,7 +159,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       color: Color(0xff0000),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Color(0xff8624dd), width: 2)),
+                      border: Border.all(color: Color(0xffAa1444), width: 2)),
                   child: MaterialButton(
                     onPressed: () {
                       Navigator.pushNamed(context, "home_page");
@@ -122,13 +170,13 @@ class _HomeState extends State<Home> {
                         Text('Calculate your \nbody needed!',
                             style: TextStyle(
                                 fontSize: 30.0,
-                                color: Color(0xff8624dd),
+                                color: Color(0xffAa1444),
                                 fontWeight: FontWeight.w600)),
                         Expanded(
                           child: Container(
                             width: 140,
                             height: 150,
-                            child: Image.asset('assets/images/body4.jpg'),
+                            child: Image.asset('assets/body.png'),
                           ),
                         )
                       ],
@@ -136,6 +184,8 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(height: 24.0),
+
+
                 Container(
                   alignment: Alignment.centerLeft,
                   height: 160,
@@ -147,33 +197,38 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Color(0xff53d1c9), width: 2)),
+                      border: Border.all(color: Colors.blue , width: 2)),
                   child: MaterialButton(
                     onPressed: () {
                       // Navigate to "The exercise" screen
                       Navigator.pushNamed(context, "exercises");
+                      Get.to(() => GridDemo());
+
                     },
                     child: Row(
                       children: [
                         Text('Go to your \nexercises',
                             style: TextStyle(
                                 fontSize: 30.0,
-                                color: Color(0xff53d1c9),
+                                color: Colors.blue[500],
                                 fontWeight: FontWeight.w600)),
                         SizedBox(
                           width: 50,
                         ),
                         Expanded(
                             child: Container(
-                          width: 140,
-                          height: 150,
-                          child: Image.asset('assets/images/exs.jpg'),
-                        ))
+                              width: 140,
+                              height: 150,
+                              child: Image.asset('assets/exerss.png'),
+                            ))
                       ],
                     ),
                   ),
                 ),
+                SizedBox(height: 24.0),
+
               ]),
         ));
+
   }
 }

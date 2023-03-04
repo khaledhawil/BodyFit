@@ -1,12 +1,38 @@
-//import 'package:first_day_flutter/modules/login/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:graduation_project/pages/signup_page.dart';
+import 'package:get/get.dart';
 import '../constants.dart';
-import 'login_screen.dart';
+import 'home.dart';
 
-class FirstPage extends StatelessWidget {
+class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
    static String id = 'first_page';
+
+  @override
+  State<FirstPage> createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage> {
+
+  String? username;
+  @override
+  void initState(){
+    Firebase.initializeApp();
+    super.initState();
+    Future.delayed(const Duration(seconds: 4), () {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+      if (_auth.currentUser !=null ) {
+        Get.to(() => Home(username: ''));
+      } else
+      {
+        Get.to(() => FirstPage());
+      }
+    }
+
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

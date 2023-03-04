@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 0,
           title: Text(
             "All Calculators",
-            style: TextStyle(color: Color(0xff8624dd)),
+            style: TextStyle(color: Colors.grey[400]),
           ),
         ),
         body: GridView(

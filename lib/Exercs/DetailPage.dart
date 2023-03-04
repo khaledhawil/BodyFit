@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
@@ -15,27 +16,43 @@ class DetilPage extends StatefulWidget {
 }
 
 class _DetilPageState extends State<DetilPage> {
-  double second = 3;
+  double second = 30.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  backgroundColor: Colors.black12,
-      body: Stack(children: [
+backgroundColor: Colors.white,
+      body: Stack(
+
+          children: [
+
         SizedBox(
           height: 50,
         ),
-        Image.network(
-          "${widget.exerciesModel!.gif}",
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height / 2,
-        ),
+        Container(
+          child: CachedNetworkImage(
+            imageUrl: "${widget.exerciesModel!.gif}",
+             imageBuilder: (context, imageProvider) => Container(
+               height: 400,
+               width: double.infinity,
+               padding: EdgeInsets.only(top: 20),
+               decoration: BoxDecoration(
+                   border: Border.all(color: Colors.black),
+                   borderRadius: BorderRadius.circular(50)
+               ),
+               child: Image(image: imageProvider)
+                 // width: double.infinity,
+                 //  height: MediaQuery.of(context).size.height / 2,
+               ),
+             ),
+          ),
+
         Positioned(
             child: Container(
           height: double.infinity,
           width: double.infinity,
           color: Colors.black12,
-        )),
+        ),),
         Positioned(
           bottom: 20,
           right: 0,
@@ -61,7 +78,7 @@ class _DetilPageState extends State<DetilPage> {
                       progressBarColor: Colors.red,
                     )),
                 min: 3,
-                max: 120,
+                max: 60,
                 initialValue: second,
                 onChange: (value) {
                   setState(() {
@@ -69,21 +86,30 @@ class _DetilPageState extends State<DetilPage> {
                   });
                 },
               ),
-              MaterialButton(
-                color: Colors.orange,
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => ExercisesPage(
-                                title: widget.exerciesModel!.title,
-                                gif: widget.exerciesModel!.gif,
-                                second: second.toInt(),
-                                thumbnail: widget.exerciesModel!.thumbnail,
-                                // location: widget.model!.location,
-                              ))));
-                },
-                child: Text("Start"),
+              Container(
+                width: 150,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius:BorderRadius.circular(20.2),
+                    border: Border.all(color: Colors.red,width: 1)
+                ),
+                child: MaterialButton(
+                  //color: Colors.orange,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => ExercisesPage(
+                                  title: widget.exerciesModel!.title,
+                                  gif: widget.exerciesModel!.gif,
+                                  second: second.toInt(),
+                                  thumbnail: widget.exerciesModel!.thumbnail,
+                                  // location: widget.model!.location,
+                                ))));
+                  },
+                  child: Text("Start"),
+                ),
               )
             ],
           ),

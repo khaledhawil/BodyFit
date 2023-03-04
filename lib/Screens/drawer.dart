@@ -90,6 +90,32 @@ class _AppDrawerState extends State<AppDrawer> {
             SizedBox(
               height: 15,
             ),
+             InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, 'Settings');
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                decoration: BoxDecoration(
+                  //    color: Color(0xffF2F2F2),
+                    border: Border(bottom: BorderSide(color: Colors.grey))),
+                child: Row(
+                  children: [
+                    Icon(Icons.settings),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.inverseSurface,
+                          fontSize: 16),
+                    )
+                  ],
+                ),
+              ),
+            ),
             InkWell(
               onTap: () {
                 // if (Platform.isIOS) {
