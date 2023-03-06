@@ -1,6 +1,6 @@
 ##  The App's name: 
 
-<h1> BodyWise</h1>
+<h1> BodyWise </h1>
 
 # About Our App :
 
@@ -33,10 +33,15 @@ With a user-friendly interface and customizable settings, our app is designed to
 soon
  
 ## BMR
+
 Basal Metabolic Rate (BMR) calculator that will calculate the number of calories required to keep your body functioning at rest
+---------------------------------------------------------------------------
+ حاسبة لمعدل الأيض الأساسي (BMR) التي ستحسب عدد السعرات الحرارية المطلوبة للحفاظ على أداء جسمك في حالة الراحة
 
 ## BMI
 BMI, or Body Mass Index, is a measure of body fat based on your weight and height. It can be used to determine if you are underweight, normal weight, overweight, or obese. However, BMI does not take into account other factors such as muscle mass or body composition
+---------------------------
+مؤشر كتلة الجسم ، أو مؤشر كتلة الجسم ، هو مقياس للدهون في الجسم بناءً على وزنك وطولك. يمكن استخدامه لتحديد ما إذا كنت تعاني من نقص الوزن أو الوزن الطبيعي أو زيادة الوزن أو السمنة. ومع ذلك ، فإن مؤشر كتلة الجسم لا يأخذ في الاعتبار عوامل أخرى مثل كتلة العضلات أو تكوين الجسم
 
 ## TDEE
 TDEE, or Total Daily Energy Expenditure, is the number of calories your body burns in a day. It takes into account your Basal Metabolic Rate (BMR) and your physical activity level. Knowing your TDEE can help you determine how many calories you need to consume to maintain, lose, or gain weight.
@@ -50,41 +55,41 @@ TDEE, or Total Daily Energy Expenditure, is the number of calories your body bur
  Drinking an adequate amount of water each day is essential for maintaining good health. It is generally recommended that adults aim to drink at least 8 cups (64 ounces) of water per day, but individual needs may vary depending on factors such as activity level, climate, and health conditions. Staying hydrated can help regulate body temperature, aid in digestion, and support overall health and well-being.
   _-----------------------------------------------------------------------------------------
 
-Food Item	Weight(g)	Calories(kcal)	Protein(g)	Carbohydrates(g)	Fat(g)
-Chicken	85	101.2	18.2	0	2.6
-Chicken breast	85	140.26	26.35	0	3
-Chicken thigh	85	197.19	22	0	11.45
-Roast duck	85	170.8	20	0	9.5
+<!-- Food Item	    Weight(g)	Calories(kcal)	Protein(g)	Carbohydrates(g)	Fat(g)
+Chicken     	85	            101.2	          18.2      	0	          2.6
+Chicken breast	85	             140.26	          26.35	         0	            3
+Chicken thigh	85	              197.	            22	            0	      11.45
+Roast duck	    85	            170.8	            20	    0	                  9.5
 Cooked pigeon	85	186.2	20.3	0	11
-Sausage	57	179.55	6.84	0	1.03
-Red fish	85	108.81	22.37	0	1.45
+Sausage	        57	179.55	6.84	0	1.03
+Red fish	    85	108.81	22.37	0	1.45
 Canned Salmon	85	130	17.4	0	6.21
-Canned Tuna	85	98.61	21.68	0	0.69
-Boiled beef	85	245.65	20.45	0	17.6
-Fried beef	85	260	20.33	0	19.2
-sleep	100	164.7	17.9	0	10.4
-Liver	85	133.5	20.72	0.75	4.65
-Boiled eggs	50	77.5	6.3	0.6	5.3
-Fried Eggs	46	90.2	6.3	0.4	7
-omelette	61	95.8	6.5	0.4	7.3
+Canned Tuna	    85	98.61	21.68	0	0.69
+Boiled beef	    85	245.65	20.45	0	17.6
+Fried beef	    85	260	20.33	0	19.2
+sleep	        100	164.7	17.9	0	10.4
+Liver	        85	133.5	20.72	0.75	4.65
+Boiled eggs 	50	77.5	6.3	0.6	5.3
+Fried Eggs  	46	90.2	6.3	0.4	7
+omelette    	61	95.8	6.5	0.4	7.3
 low fat milk	244	122	8.1	11.4	4.8
 full-fat milk	100	64	3.5	5.5	3
 Cheddar cheese	28	112.8	7	0.4	9.3
-Feta cheese	61	28	4	1.1	6
+Feta cheese 	61	28	4	1.1	6
 Mozzarella cheese	28	84	6.2	0.6	6.3
-avocado	146	233.6	2.9	12.5	21.4
-orange	131	61.6	1.2	15.4	0.2
-peach	150	58.5	1.4	14.3	0.4
-dates	32	90.2	0.8	24	0.1
-orange	131	61.6	1.2	15.4	0.2
-fig	50	37	0.4	9.6	0.2
-apples	138	71.8	0.4	19.1	0.2
-Guava	90	61.2	2.3	12.9	0.9
-Strawberry	144	46.1	1	11.1	0.4
-kiwi	76	46.4	0.9	11.1	0.4
-mango	207	134.6	1.1	35.2	0.6
-banana	118	105	1.3	27	0.4
-coconut	45	159.3	1.5	6.9	15.1
-nuts	28	124.9	2.4	20.1	4.4
-mango	207	134.6	1.1	35.2	0.6
+avocado	        146	233.6	2.9	12.5	21.4
+orange      	131	61.6	1.2	15.4	0.2
+peach       	150	58.5	1.4	14.3	0.4
+dates       	32	90.2	0.8	24	0.1
+orange      	131	61.6	1.2	15.4	0.2
+fig         	50	37	0.4	9.6	0.2
+apples	      138	71.8	0.4	19.1	0.2
+Guava	      90	61.2	2.3	12.9	0.9
+Strawberry	  144	46.1	1	11.1	0.4
+kiwi	      76	46.4	0.9	11.1	0.4
+mango   	207	134.6	1.1	35.2	0.6
+banana	      118	105	1.3	27	0.4
+coconut 	45	159.3	1.5	6.9	15.1
+nuts	    28	124.9	2.4	20.1	4.4
+mango	  207	134.6	1.1	35.2	0.6 -->
 #############################################
