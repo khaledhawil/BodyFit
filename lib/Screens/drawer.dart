@@ -1,8 +1,7 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+// import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -21,27 +20,27 @@ class _AppDrawerState extends State<AppDrawer> {
     }
   }
 
-  PackageInfo _packageInfo = PackageInfo(
-    appName: 'Unknown',
-    packageName: 'Unknown',
-    version: 'Unknown',
-    buildNumber: 'Unknown',
-  );
+  // PackageInfo _packageInfo = PackageInfo(
+  //   appName: 'Unknown',
+  //   packageName: 'Unknown',
+  //   version: 'Unknown',
+  //   buildNumber: 'Unknown',
+  // );
 
-  Future<void> _initPackageInfo() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = info;
-      print("package info $_packageInfo");
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _initPackageInfo();
-  }
+  // Future<void> _initPackageInfo() async {
+  //   final PackageInfo info = await PackageInfo.fromPlatform();
+  //   setState(() {
+  //     _packageInfo = info;
+  //     print("package info $_packageInfo");
+  //   });
+  // }
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _initPackageInfo();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -90,41 +89,16 @@ class _AppDrawerState extends State<AppDrawer> {
             SizedBox(
               height: 15,
             ),
-             InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, 'Settings');
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                decoration: BoxDecoration(
-                  //    color: Color(0xffF2F2F2),
-                    border: Border(bottom: BorderSide(color: Colors.grey))),
-                child: Row(
-                  children: [
-                    Icon(Icons.settings),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      "Settings",
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.inverseSurface,
-                          fontSize: 16),
-                    )
-                  ],
-                ),
-              ),
-            ),
             InkWell(
               onTap: () {
-                // if (Platform.isIOS) {
-                //
-                // }
-                // // // Android
-                // if (Platform.isAndroid) {
-                //   launch(
-                //
+                Navigator.of(context).pop();
+                final Uri params = Uri(
+                  scheme: 'mailto',
+                  path: 'Khaledhawil91@gmail.com',
+                  query:
+                  'subject=Health Calculator &  BodyWise Feedback', //add subject and body here
+                );
+                launchUrl(params);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -134,14 +108,14 @@ class _AppDrawerState extends State<AppDrawer> {
                     border: Border(bottom: BorderSide(color: Colors.grey))),
                 child: Row(
                   children: [
-                    Image.asset('assets/images/ic_rate_us.webp',
-                        height: 20,
-                        color: Theme.of(context).colorScheme.inverseSurface),
+                    Icon(Icons.mail_outline_outlined),
+                        // height: 20,
+                        // color: Theme.of(context).colorScheme.inverseSurface),
                     SizedBox(
                       width: 20,
                     ),
                     Text(
-                      "Rate Us",
+                      "Contact us",
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.inverseSurface,
                           fontSize: 16),
@@ -169,9 +143,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     border: Border(bottom: BorderSide(color: Colors.grey))),
                 child: Row(
                   children: [
-                    Image.asset('assets/images/ic_feedback.webp',
-                        height: 20,
-                        color: Theme.of(context).colorScheme.inverseSurface),
+                    Icon(Icons.feedback_outlined),
                     SizedBox(
                       width: 20,
                     ),
@@ -187,21 +159,7 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
             InkWell(
               onTap: () {
-                try {
-                  Navigator.pop(context);
-                  // iOS
-                  // if (Platform.isIOS) {
-                  //   Share.share(
-                  //       '${AppLocalizations.of(context)!.heyDownload}!= https://apps.apple.com/us/app/1608350899');
-                  // }
-                  // // // Android
-                  // if (Platform.isAndroid) {
-                  //   Share.share(
-                  //       '${AppLocalizations.of(context)!.heyDownload} != https://play.google.com/store/apps/details?id=com.pdf.photos.converter.image.pic');
-                  // }
-                } catch (e) {
-                  print("error $e");
-                }
+
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -242,11 +200,13 @@ class _AppDrawerState extends State<AppDrawer> {
                     border: Border(bottom: BorderSide(color: Colors.grey))),
                 child: Row(
                   children: [
+
+
                     Image.asset(
                       'assets/images/ic_privacy_policy.webp',
                       height: 20,
-                      color: Theme.of(context).colorScheme.inverseSurface,
-                    ),
+                      color: Theme.of(context).colorScheme.inverseSurface,),
+
                     SizedBox(
                       width: 20,
                     ),
@@ -322,6 +282,21 @@ class _AppDrawerState extends State<AppDrawer> {
                 ),
               ),
             ),
+            SizedBox(height: 20,),
+            Center(
+              child:
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: MaterialButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, 'Log_out');
+                  },
+                  child: Text('Log out',style: TextStyle(color: Colors.white),),
+                ),
+              ),)
           ],
         ),
       ),

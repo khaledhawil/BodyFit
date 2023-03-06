@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ExerciesModel {
   String? id, title, thumbnail, gif, seconds;
   ExerciesModel? exerciesModel;

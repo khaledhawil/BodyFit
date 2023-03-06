@@ -1,34 +1,48 @@
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../Exercs/GridDemo.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:graduation_project/Exercs/GridDemo.dart';
 import '../Screens/drawer.dart';
-import '../constants.dart';
-
+import 'package:intl/intl.dart';
 
 class Home extends StatefulWidget {
-   final String username;
-   const Home({Key? key,required this.username}) : super(key: key);
+  final String username;
+  const Home({Key? key, required this.username}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
-
 class _HomeState extends State<Home> {
-
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   //bool _darkMode = false;
+  late Timer _timer;
   @override
+  void initState() {
+    super.initState();
+    // Set up a timer that refreshes the page every 5 seconds
+    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
+      setState(() {});
+    });
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
+    // Cancel the timer to avoid memory leaks
+    _timer.cancel();
+  }
+
+  @override
   Widget build(BuildContext context) {
-   // String? userName;
+
     ModalRoute.of(context)!.settings.arguments as String?;
     //MyLocaleController controllerLang = Get.find();
     return Scaffold(
         key: _scaffoldKey,
-        backgroundColor: kPrimaryColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
             onPressed: () => _scaffoldKey.currentState!.openDrawer(),
@@ -41,7 +55,7 @@ class _HomeState extends State<Home> {
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
-          elevation: .15,
+          elevation: .19,
           title: Text(
             "Home",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
@@ -96,21 +110,28 @@ class _HomeState extends State<Home> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xffeff3f4)),
                           ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            '${DateFormat('EEE, MMM d, h:mm a').format(DateTime.now())}',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
                       Expanded(
                           child: Container(
-                            padding: EdgeInsets.only(left: 20),
-                            width: 120,
-                            height: 140,
-                            child: Image(
-                                image: AssetImage('assets/images/fitness.png')),
-                          ))
+                        padding: EdgeInsets.only(left: 20),
+                        width: 120,
+                        height: 140,
+                        child: Image(
+                            image: AssetImage('assets/images/fitness.png')),
+                      ))
                     ],
                   ),
                 ),
-
-
+                SizedBox(height: 15.0),
                 Container(
                   alignment: Alignment.centerLeft,
                   height: 160,
@@ -125,7 +146,7 @@ class _HomeState extends State<Home> {
                       border: Border.all(color: Colors.green, width: 2)),
                   child: MaterialButton(
                     onPressed: () {
-                      // Navigate to "The exercise" screen
+                      // Navigate to "The Nutrition" screen
                       Navigator.pushNamed(context, 'meals');
                     },
                     child: Row(
@@ -140,14 +161,15 @@ class _HomeState extends State<Home> {
                         ),
                         Expanded(
                             child: Container(
-                              width: 140,
-                              height: 150,
-                              child: Image.asset('assets/food2.png'),
-                            ))
+                          width: 140,
+                          height: 150,
+                          child: Image.asset('assets/food2.png'),
+                        ))
                       ],
                     ),
                   ),
                 ),
+                SizedBox(height: 15.0),
                 Container(
                   alignment: Alignment.centerLeft,
                   height: 160,
@@ -157,12 +179,12 @@ class _HomeState extends State<Home> {
                     horizontal: 1.0,
                   ),
                   decoration: BoxDecoration(
-                      color: Color(0xff0000),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: Color(0xffAa1444), width: 2)),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "home_page");
+                      Navigator.pushNamed(context, "calculator");
                       // Navigate to "The exercise" screen
                     },
                     child: Row(
@@ -183,9 +205,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                SizedBox(height: 24.0),
-
-
+                SizedBox(height: 15.0),
                 Container(
                   alignment: Alignment.centerLeft,
                   height: 160,
@@ -197,13 +217,12 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.blue , width: 2)),
+                      border: Border.all(color: Colors.blue, width: 2)),
                   child: MaterialButton(
                     onPressed: () {
                       // Navigate to "The exercise" screen
                       Navigator.pushNamed(context, "exercises");
                       Get.to(() => GridDemo());
-
                     },
                     child: Row(
                       children: [
@@ -217,18 +236,16 @@ class _HomeState extends State<Home> {
                         ),
                         Expanded(
                             child: Container(
-                              width: 140,
-                              height: 150,
-                              child: Image.asset('assets/exerss.png'),
-                            ))
+                          width: 140,
+                          height: 150,
+                          child: Image.asset('assets/exerss.png'),
+                        ))
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 24.0),
-
+                SizedBox(height: 15.0),
               ]),
         ));
-
   }
 }

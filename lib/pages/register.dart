@@ -1,10 +1,8 @@
-//import 'dart:html';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-import '../constants.dart';
 
 
 const primaryColor= Color(0xff2B475E);
@@ -18,17 +16,17 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   String? email;
   String? password;
+
   Function(String)? onChanged;
   bool? obScureText = true ;
   bool isLoading = false ;
-  //String id = 'registerPage';
   GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
-       backgroundColor: kPrimaryColor,
+   //    backgroundColor: kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Container(
@@ -47,6 +45,7 @@ class _RegisterState extends State<Register> {
                   SizedBox(height: 20,),
                       Center(child: Text('Create your Account' ,style: TextStyle(fontSize: 20.0))),
                       SizedBox(height: 20,),
+
                       Container(
                         alignment: Alignment.topLeft,
                         child: Text(

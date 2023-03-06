@@ -2,9 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_project/pages/register.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-
-import '../constants.dart';
 import 'home.dart';
+
+
+
+// This Page Content a Sign In Method
+// the user enters his name and Email and password
+ // all of them will saved on   Flutter Firebase
+
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -29,7 +34,7 @@ class _SignInState extends State<SignIn> {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
       child: Scaffold(
-        backgroundColor: kPrimaryColor,
+      //  backgroundColor: kPrimaryColor,
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Container(
@@ -83,6 +88,7 @@ class _SignInState extends State<SignIn> {
                         child: TextFormField(
                           controller: _usernameController,
                           //  controller: myController,
+                          // this validator to show message when user enters no Name
                           validator: (data) {
                             if (data!.isEmpty) {
                               return 'User name please!';
@@ -119,6 +125,7 @@ class _SignInState extends State<SignIn> {
                       Container(
                         // padding: EdgeInsets.all(2),
                         child: TextFormField(
+                          // this validator to show message when user enters no Email
                           validator: (data) {
                             if (data!.isEmpty) {
                               return 'Email is empty';
@@ -154,7 +161,9 @@ class _SignInState extends State<SignIn> {
                       Container(
                         padding: EdgeInsets.all(2),
                         child: TextFormField(
+                          // This obscure Text to hied the pass
                           obscureText: obScureText!,
+                          // this validator to show message when user enters no Pass
                           validator: (data) {
                             if (data!.isEmpty) {
                               return 'Password is empty';
@@ -197,6 +206,7 @@ class _SignInState extends State<SignIn> {
                             borderRadius: BorderRadius.circular(20)),
                         width: double.infinity,
                         child: MaterialButton(
+                          // this button to send and receive the date to firebase to check
                           height: 40,
                           onPressed: () async {
                             //FirebaseAuth.instance;

@@ -185,22 +185,19 @@ class _nutrition_pageState extends State<nutrition_page> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        //i will put arrow to back
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.black,
+        ),
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Row(
-          children: [
-            SizedBox(
-              width: size * 0.010,
-            ),
-            Text(
-              'palestine',
-              style: GoogleFonts.poppins(
-                fontSize: size * 0.040,
-                color: Colors.grey[400],
-              ),
-            ),
-          ],
+        title: Text(
+          'Nutrition Page ',
+          style: TextStyle(color: Colors.grey[400]),
         ),
       ),
       body: SingleChildScrollView(

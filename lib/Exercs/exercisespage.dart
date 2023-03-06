@@ -65,36 +65,6 @@ class _ExercisesPageState extends State<ExercisesPage> {
     super.initState();
   }
 
-  //ad
-  // late BannerAd _bottomBannerAd;
-  // bool _isBottomBannerAdLoaded = false;
-  // void _createBottomBannerAd() {
-  //   _bottomBannerAd = BannerAd(
-  //     adUnitId: AdHelper.bannerAdUnitId,
-  //     size: AdSize.banner,
-  //     request: AdRequest(),
-  //     listener: BannerAdListener(
-  //       onAdLoaded: (_) {
-  //         setState(() {
-  //           _isBottomBannerAdLoaded = true;
-  //         });
-  //       },
-  //       onAdFailedToLoad: (ad, error) {
-  //         ad.dispose();
-  //       },
-  //     ),
-  //   );
-  //   _bottomBannerAd.load();
-  // }
-  //
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   _bottomBannerAd.dispose();
-  // }
-  //
-  // //end ad
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +77,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
               height: 40,
             ),
                 Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                   child: CachedNetworkImage(
                     imageUrl: '${widget.gif}',
                     imageBuilder: (context, imageProvider) => Container(
@@ -137,7 +108,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
               radius: 70,
               backgroundColor: Colors.green[500],
               child: Text(
-                '${startSound} / ${widget.second!.toStringAsFixed(0)}',
+                '${startSound} / ${widget.second!.toStringAsFixed(0)} s',
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w600,

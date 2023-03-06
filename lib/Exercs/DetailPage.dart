@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
-
 import 'Model/Model.dart';
 import 'exercisespage.dart';
 
@@ -21,11 +20,9 @@ class _DetilPageState extends State<DetilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-backgroundColor: Colors.white,
+//backgroundColor: Colors.white,
       body: Stack(
-
           children: [
-
         SizedBox(
           height: 50,
         ),
@@ -37,8 +34,8 @@ backgroundColor: Colors.white,
                width: double.infinity,
                padding: EdgeInsets.only(top: 20),
                decoration: BoxDecoration(
-                   border: Border.all(color: Colors.black),
-                   borderRadius: BorderRadius.circular(50)
+                   border: Border(bottom: BorderSide(color: Colors.grey)),
+                  // borderRadius: BorderRadius.circular(50)
                ),
                child: Image(image: imageProvider)
                  // width: double.infinity,
@@ -46,15 +43,16 @@ backgroundColor: Colors.white,
                ),
              ),
           ),
+       
 
         Positioned(
             child: Container(
           height: double.infinity,
           width: double.infinity,
-          color: Colors.black12,
+          //color: Colors.black12,
         ),),
         Positioned(
-          bottom: 20,
+          bottom: 100,
           right: 0,
           left: 0,
           child: Column(
@@ -64,7 +62,7 @@ backgroundColor: Colors.white,
                   return Container(
                     alignment: Alignment.center,
                     child: Text(
-                      "${second.toStringAsFixed(0)} S",
+                      "${second.toStringAsFixed(0)} s",
                       style: TextStyle(
                           fontSize: 40,
                           color: Colors.black,
@@ -110,10 +108,12 @@ backgroundColor: Colors.white,
                   },
                   child: Text("Start"),
                 ),
-              )
+              ),
+
             ],
           ),
-        )
+        ),
+
       ]),
     );
   }

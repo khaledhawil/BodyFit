@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // import '../Utilies/constants.dart';
 import '../connectionCalculators.dart';
-import 'drawer.dart';
+import '../pages/home.dart';
+// import 'drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key,});
@@ -29,6 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // floatingActionButton: FloatingActionButton(
+        //   child: Icon(Icons.home),
+        //   onPressed: () {
+        //     Get.offAll(() => Home(username:'',));
+        //   },
+        // ),
         key: _scaffoldKey,
         // drawer: AppDrawer(),
         backgroundColor: Color(0xffffffff),

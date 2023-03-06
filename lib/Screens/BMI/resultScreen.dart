@@ -284,6 +284,22 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            decoration: BoxDecoration(
+                color: Color(0xffd78d14),
+                borderRadius:
+                BorderRadius.circular(20)),
+            child: MaterialButton(
+
+              onPressed: () {
+                Navigator.pushNamed(context, 'meals');
+              },
+              child: Text('Go to Nutrition'),
+            ),
+          )
         ],
       ),
     );
@@ -311,18 +327,18 @@ class _ResultPageState extends State<ResultPage> {
     }
 
     return Container(
-
       child: Stack(
         alignment: Alignment.topCenter,
         fit: StackFit.loose,
         children: [
-
           Image.asset(
             "assets/images/groupmeter.png",
             height: pixelHeight * 136,
           ),
           Container(
-            padding: EdgeInsets.only(top: pixelHeight * 45,),
+            padding: EdgeInsets.only(
+              top: pixelHeight * 45,
+            ),
             margin: EdgeInsets.only(left: 10, right: 10),
             child: Transform.rotate(
               angle: angle,

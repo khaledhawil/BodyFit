@@ -1,12 +1,8 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-
 import 'DetailPage.dart';
 import 'Model/Model.dart';
 
@@ -114,6 +110,7 @@ class _GridDemoState extends State<GridDemo> {
                     builder: (context) => DetilPage(
                           exerciesModel: allData[index],
                         )));
+
               },
               child: CachedNetworkImage(
                 imageUrl: "${allData[index].gif}",
