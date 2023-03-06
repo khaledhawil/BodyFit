@@ -35,8 +35,8 @@ soon
 ## BMR
 
 Basal Metabolic Rate (BMR) calculator that will calculate the number of calories required to keep your body functioning at rest
----------------------------------------------------------------------------
- حاسبة لمعدل الأيض الأساسي (BMR) التي ستحسب عدد السعرات الحرارية المطلوبة للحفاظ على أداء جسمك في حالة الراحة
+-----------------------
+ حاسبة لمعدل الأيض الأساسي التي ستحسب عدد السعرات الحرارية المطلوبة للحفاظ على أداء جسمك في حالة الراحة
 
 ## BMI
 BMI, or Body Mass Index, is a measure of body fat based on your weight and height. It can be used to determine if you are underweight, normal weight, overweight, or obese. However, BMI does not take into account other factors such as muscle mass or body composition
@@ -45,14 +45,24 @@ BMI, or Body Mass Index, is a measure of body fat based on your weight and heigh
 
 ## TDEE
 TDEE, or Total Daily Energy Expenditure, is the number of calories your body burns in a day. It takes into account your Basal Metabolic Rate (BMR) and your physical activity level. Knowing your TDEE can help you determine how many calories you need to consume to maintain, lose, or gain weight.
+---------------
+  إجمالي نفقات الطاقة اليومية ، هو عدد السعرات الحرارية التي يحرقها جسمك في اليوم. يأخذ في الاعتبار معدل الأيض الأساسي ومستوى نشاطك البدني. يمكن أن تساعدك معرفة TDEE في تحديد عدد السعرات الحرارية التي تحتاجها للحفاظ على الوزن أو خسارته أو زيادته.
 
 ## BFP
  Body Fat Percentage, is a measure of the proportion of fat in your body compared to your total body weight. It can be estimated through various methods such as  Height, neck, waist, and hip measurements are factors that can be used to calculate BFP and can provide insight into your body composition and overall health.
+ ---------------
+ نسبة الدهون في الجسم ، هي مقياس لنسبة الدهون في الجسم مقارنة بإجمالي وزن الجسم. يمكن تقديره من خلال طرق مختلفة مثل قياسات الطول والرقبة والخصر والورك وهي عوامل يمكن استخدامها لحساب  ويمكن أن توفر نظرة ثاقبة لتكوين جسمك وصحتك العامة.
+
+
 ## EER
  EER, or Estimated Energy Requirement, is the number of calories an individual needs to consume per day to maintain their current weight. It takes into account factors such as age, gender, weight, height, and physical activity level. Knowing your EER can help you determine how many calories you need to consume to maintain, lose, or gain weight.
+ ------------------
+  ، أو تقدير متطلبات الطاقة ، هو عدد السعرات الحرارية التي يحتاجها الفرد يوميًا للحفاظ على وزنه الحالي. يأخذ في الاعتبار عوامل مثل العمر والجنس والوزن والطول ومستوى النشاط البدني. يمكن أن تساعدك معرفة معدل كفاءة الطاقة (EER) في تحديد عدد السعرات الحرارية التي تحتاج إلى استهلاكها للحفاظ على الوزن أو إنقاصه أو زيادته.
 
  ## WID 
  Drinking an adequate amount of water each day is essential for maintaining good health. It is generally recommended that adults aim to drink at least 8 cups (64 ounces) of water per day, but individual needs may vary depending on factors such as activity level, climate, and health conditions. Staying hydrated can help regulate body temperature, aid in digestion, and support overall health and well-being.
+ ---------------------
+ يعد شرب كمية كافية من الماء يوميًا أمرًا ضروريًا للحفاظ على صحة جيدة. يوصى عمومًا بأن يهدف البالغون إلى شرب ما لا يقل عن 8 أكواب (64 أونصة) من الماء يوميًا ، ولكن قد تختلف الاحتياجات الفردية اعتمادًا على عوامل مثل مستوى النشاط والمناخ والظروف الصحية. يمكن أن يساعد الحفاظ على رطوبة الجسم في تنظيم درجة حرارة الجسم ، والمساعدة في الهضم ، ودعم الصحة العامة والرفاهية.
   _-----------------------------------------------------------------------------------------
 
 <!-- Food Item	    Weight(g)	Calories(kcal)	Protein(g)	Carbohydrates(g)	Fat(g)
