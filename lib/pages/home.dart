@@ -17,7 +17,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  //bool _darkMode = false;
   late Timer _timer;
   @override
   void initState() {

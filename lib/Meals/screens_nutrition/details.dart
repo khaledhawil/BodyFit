@@ -10,13 +10,16 @@ class DetailPage extends StatelessWidget {
   final String pro;
   final String cals;
 
+
   DetailPage(
       {this.food,
       required this.text,
       required this.img,
       required this.cal,
       required this.cals,
-      required this.pro});
+      required this.pro,
+      
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -164,11 +167,11 @@ class DetailPage extends StatelessWidget {
                                         // Column(
                                         //   crossAxisAlignment: CrossAxisAlignment.start,
                                         //   children: const[
-                                        //     Text(,style: TextStyle(
+                                        //     Text('Fat' ,style: TextStyle(
                                         //         fontSize: 13,color: Colors.grey
                                         //     ),),
                                         //     SizedBox(height: 6,),
-                                        //     Text('21 g',style: TextStyle(
+                                        //     Text( fat! ,style: TextStyle(
                                         //         fontSize: 17,color: Color(0xff1c7d4f),fontWeight: FontWeight.w900
                                         //     ),),
                                         //   ],
@@ -193,10 +196,11 @@ class DetailPage extends StatelessWidget {
                                                 BorderRadius.circular(20)),
                                         child: MaterialButton(
                                           onPressed: () {
-                                            Navigator.pushNamed(context, "calculator");
+                                            Navigator.pushNamed(
+                                                context, "calculator");
                                           },
                                           child: Text(
-                                            'Go to BMI Calculate',
+                                            'Go to BMI Calculator',
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),

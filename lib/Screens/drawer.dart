@@ -64,7 +64,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 children: [
                   //this is a photo
                   Image.asset(
-                    'assets/images/wise.png',
+                    'assets/bodyfitlogo.jpeg',
                     width: 50,
                   ),
                   SizedBox(
@@ -74,7 +74,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("BodyWise",
+                      Text("BodyFit",
                           style: TextStyle(
                             fontFamily: 'Bolt',
                             fontSize: 25,

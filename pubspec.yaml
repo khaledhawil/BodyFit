@@ -51,11 +51,20 @@ dependencies:
   shared_preferences: ^2.0.18
   provider: ^6.0.3
   get: ^4.6.5
+  flutter_launcher_icons: ^0.12.0
   cached_network_image:
+#  flutter_launcher_icons: ^0.12.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.12.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+#  ios: true
+  image_path: "assets/bodyfit.jpg"
+  min_sdk_android: 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

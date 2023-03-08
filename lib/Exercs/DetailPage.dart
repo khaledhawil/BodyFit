@@ -4,7 +4,6 @@ import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'Model/Model.dart';
 import 'exercisespage.dart';
 
-
 class DetilPage extends StatefulWidget {
   DetilPage({Key? key, this.exerciesModel}) : super(key: key);
 
@@ -20,37 +19,48 @@ class _DetilPageState extends State<DetilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(''),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.black,
+        ),
+        centerTitle: true,
+        elevation: 0,
+      ),
 //backgroundColor: Colors.white,
-      body: Stack(
-          children: [
+      body: Stack(children: [
         SizedBox(
           height: 50,
         ),
         Container(
           child: CachedNetworkImage(
             imageUrl: "${widget.exerciesModel!.gif}",
-             imageBuilder: (context, imageProvider) => Container(
-               height: 400,
-               width: double.infinity,
-               padding: EdgeInsets.only(top: 20),
-               decoration: BoxDecoration(
-                   border: Border(bottom: BorderSide(color: Colors.grey)),
+            imageBuilder: (context, imageProvider) => Container(
+                height: 400,
+                width: double.infinity,
+                padding: EdgeInsets.only(top: 20),
+                decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey)),
                   // borderRadius: BorderRadius.circular(50)
-               ),
-               child: Image(image: imageProvider)
-                 // width: double.infinity,
-                 //  height: MediaQuery.of(context).size.height / 2,
-               ),
-             ),
+                ),
+                child: Image(image: imageProvider)
+                // width: double.infinity,
+                //  height: MediaQuery.of(context).size.height / 2,
+                ),
           ),
-       
-
+        ),
         Positioned(
-            child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          //color: Colors.black12,
-        ),),
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            //color: Colors.black12,
+          ),
+        ),
         Positioned(
           bottom: 100,
           right: 0,
@@ -89,9 +99,8 @@ class _DetilPageState extends State<DetilPage> {
                 height: 40,
                 decoration: BoxDecoration(
                     color: Colors.red,
-                    borderRadius:BorderRadius.circular(20.2),
-                    border: Border.all(color: Colors.red,width: 1)
-                ),
+                    borderRadius: BorderRadius.circular(20.2),
+                    border: Border.all(color: Colors.red, width: 1)),
                 child: MaterialButton(
                   //color: Colors.orange,
                   onPressed: () {
@@ -109,11 +118,9 @@ class _DetilPageState extends State<DetilPage> {
                   child: Text("Start"),
                 ),
               ),
-
             ],
           ),
         ),
-
       ]),
     );
   }

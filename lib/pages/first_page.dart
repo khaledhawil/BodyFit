@@ -1,40 +1,42 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'home.dart';
 // import 'package:get/get.dart';
 // import 'home.dart';
-
 
 // This Page is the first page whene user open the app
 // ---------------------------------------------------
 // Whene User enters the app , it appears to him the first page, To choose the login method
 class FirstPage extends StatefulWidget {
   const FirstPage({Key? key}) : super(key: key);
-   static String id = 'first_page';
+  static String id = 'first_page';
 
   @override
   State<FirstPage> createState() => _FirstPageState();
 }
 
 class _FirstPageState extends State<FirstPage> {
+  @override
+  void initState(){
+    Firebase.initializeApp();
+    super.initState();
+    Future.delayed(const Duration(seconds: 4), () {
+      final FirebaseAuth _auth = FirebaseAuth.instance;
+      if (_auth.currentUser !=null ) {
+        Get.to(() => Home(username: '',));
+      } else
+      {
+        Get.to(() => FirstPage());
+      }
+    }
 
-  String? username;
-  // @override
-  // void initState(){
-  //   Firebase.initializeApp();
-  //   super.initState();
-  //   Future.delayed(const Duration(seconds: 4), () {
-  //     final FirebaseAuth _auth = FirebaseAuth.instance;
-  //     if (_auth.currentUser !=null ) {
-  //       Get.to(() => Home(username: ''));
-  //     } else
-  //     {
-  //       Get.to(() => FirstPage());
-  //     }
-  //   }
-  //
-  //   );
-  // }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +73,7 @@ class _FirstPageState extends State<FirstPage> {
               SizedBox(
                 height: 30,
               ),
-              Text('Choose your way to enter!',
-                  style: TextStyle(
-                      fontSize: 20
-                  )
-              ),
+              Text('Choose your way to enter!', style: TextStyle(fontSize: 20)),
               SizedBox(
                 height: 75,
               ),
@@ -87,8 +85,7 @@ class _FirstPageState extends State<FirstPage> {
                 width: double.infinity,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context,
-                    'register');
+                    Navigator.pushNamed(context, 'register');
                   },
                   child: Text(
                     'Sign Up',
@@ -107,8 +104,7 @@ class _FirstPageState extends State<FirstPage> {
                 width: double.infinity,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context,
-                    "sign_in");
+                    Navigator.pushNamed(context, "sign_in");
                   },
                   child: Text(
                     'Sign in',
@@ -116,6 +112,22 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 50,
+              ),
+              MaterialButton(
+                onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          Home(username: ''),
+                    ),
+                  );
+                },
+                child: Text('Skip',style: TextStyle(color: Colors.red),),
+
+              )
             ],
           ),
         ),

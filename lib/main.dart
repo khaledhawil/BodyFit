@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/Screens/BMI/bmiCalculator.dart';
 import 'package:graduation_project/pages/first_page.dart';
-import 'package:graduation_project/pages/home.dart';
 import 'package:graduation_project/pages/log_out.dart';
 import 'package:graduation_project/pages/register.dart';
 import 'package:graduation_project/pages/sgin_in.dart';
@@ -17,7 +16,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  //darkMode = instance.getBool('darkMode');
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get.put(MyLocaleController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
@@ -41,9 +38,7 @@ class MyApp extends StatelessWidget {
         Register.id : (context) => Register(),
         FirstPage.id : (context) => FirstPage(),
       },
-      // locale: Get.deviceLocale,
-      // translations: MyLocale(),
-      home: Home(username: '',),
+      home: FirstPage(),
 
     );
   }
